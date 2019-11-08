@@ -1,4 +1,4 @@
-package schedule;
+package RCPSP;
 
 import java.io.File;
 import java.io.FileNotFoundException;

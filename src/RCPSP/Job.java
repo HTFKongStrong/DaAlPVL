@@ -1,4 +1,4 @@
-package schedule;
+package RCPSP;
 /*
  * Einlese-Programm wurde von Studierende der HFT Stuttgart entwickelt 
  */
@@ -74,6 +74,7 @@ public class Job {
 		return j;
 	}
 
+//Method for calculate the Predecessors
 	public static void calculatePredecessors(Job[] l) {
 		// fehlt noch :-(
 		// gelöst
@@ -84,6 +85,17 @@ public class Job {
 			});
 		}
 	}
+
+	// calculatePredecessors von Homberger
+//	public void calculatePredecessors(Job[] l) {
+//		for (int i = 0; i < l.length; i++) {
+//			for (int j = 0; j < l[i].nachfolger.size(); j++) {
+//				if (this.nummer == l[i].nachfolger.get(j)) {
+//					this.vorgaenger.add(l[i].nummer);
+//				}
+//			}
+//		}
+//	}
 
 	public static Job[] read(File file) throws FileNotFoundException {
 

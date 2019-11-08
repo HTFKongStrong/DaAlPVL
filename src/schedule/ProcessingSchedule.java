@@ -4,7 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class Test {
+import RCPSP.Schedule;
+import RCPSP.Job;
+import RCPSP.Resource;
+
+public class ProcessingSchedule {
 
 	public static void main(String[] args) throws FileNotFoundException {
 //		Job[] jobs     = Job.read(new File("j1201_5.sm"));//best makespan=112
@@ -12,18 +16,22 @@ public class Test {
 		Job[] jobs = Job.read(new File("j12046_8.sm"));
 		Resource[] res = Resource.read(new File("j12046_8.sm"));
 
+//For Loop Homberger for calculate the Predecessors of every item in jobs		
 //		for (int i = 0; i < jobs.length; i++) {
 //			jobs[i].calculatePredecessors(jobs);
 //		}
+
+// CalcualtePredecessors
 		Job.calculatePredecessors(jobs);
-		
-		Individual s = new Individual();
+
+		Schedule s = new Schedule();
 		s.initializeJobListe(jobs);
-		
+
 		auslesen(jobs);
 		auslesen(res);
 	}
 
+//Code for Console Print
 	private static void auslesen(Job[] jobs) {
 		int gesamtDauer = 0;
 		for (int i = 0; i < jobs.length; i++) {

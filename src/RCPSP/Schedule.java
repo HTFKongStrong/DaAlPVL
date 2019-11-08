@@ -1,9 +1,9 @@
-package schedule;
+package RCPSP;
 //Klasse in Schedule umbennenen
 
 import java.util.ArrayList;
 
-public class Individual {
+public class Schedule {
 	int[] jobListe;
 	int[] schedule;
 
@@ -22,13 +22,17 @@ public class Individual {
 
 		while (count != jobs.length) {
 			Job min = eligibleJobs.get(0);
-
-			// ideeen
+			int minDauer = eligibleJobs.get(0).dauer();
+			for (int i = 0; i < eligibleJobs.size(); i++) {
+				if (eligibleJobs.get(i).dauer < minDauer) {
+					minDauer = eligibleJobs.get(i).dauer;
+					min = eligibleJobs.get(i);
+				}
+			}
 
 			jobListe[count] = min.nummer;
 			count++;
 			eligibleJobs.remove(min);
-
 			nachfolgerAkt = min.nachfolger();
 
 			for (int i = 0; i < nachfolgerAkt.size(); i++) {
@@ -42,6 +46,14 @@ public class Individual {
 							found = true;
 						}
 					}
+					if (!found) {
+						alleVorgaenger = false;
+						break;
+					}
+
+				}
+				if (alleVorgaenger) {
+					eligibleJobs.add(Job.getJob(jobs, nachfolgerAkt.get(i)));
 				}
 			}
 		}
