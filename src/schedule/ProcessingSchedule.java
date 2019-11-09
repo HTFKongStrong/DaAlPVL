@@ -16,6 +16,7 @@ public class ProcessingSchedule {
 		Job[] jobs = Job.read(new File("j12046_8.sm"));
 		Resource[] res = Resource.read(new File("j12046_8.sm"));
 		
+		
 
 
 //For Loop Homberger for calculate the Predecessors of every item in jobs		
@@ -29,8 +30,14 @@ public class ProcessingSchedule {
 		Schedule s = new Schedule();
 		s.initializeJobListe(jobs);
 
-		auslesen(jobs);
-		auslesen(res);
+		//auslesen(jobs);
+		//auslesen(res);
+		
+		//System.out.println("\n-------------------------------\n");
+		
+		//System.out.println("Ressource \n--------------\n" + res[1].toString()+"\n");
+		
+		//System.out.println("Job\n-------------\n"+ jobs[1].toString()+"\n");
 	}
 
 //Code for Console Print

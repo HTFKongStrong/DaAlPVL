@@ -1,5 +1,4 @@
 package RCPSP;
-//Klasse in Schedule umbennenen
 
 import java.util.ArrayList;
 
@@ -57,5 +56,60 @@ public class Schedule {
 				}
 			}
 		}
+
+		for (Integer integer : jobListe) {
+			System.out.println(integer);
+		}
 	}
+
+	public void decodeJobList(Job[] jobs, Resource[] res) {
+		// calculate the starting times of the jobs in the order of jobListe
+
+		schedule = new int[jobListe.length];
+
+		// calculate the maximum possible makespan "maxDauer" of the project
+		int maxDuration = 0;// alt shift R
+		for (int i = 0; i < jobs.length; i++) {
+			maxDuration += jobs[i].dauer;
+		}
+
+		int[][] resourcenTableau = new int[res.length][maxDuration];
+
+		for (int i = 0; i < resourcenTableau.length; i++) {
+			for (int j = 0; j < resourcenTableau[i].length; j++) {
+				resourcenTableau[i][j] = res[i].maxVerfuegbarkeit();
+			}
+		}
+
+		for (int i = 0; i < jobListe.length; i++) {
+
+			int nr = jobListe[i];
+
+			Job j = Job.getJob(jobs, nr);
+
+			int p1 = earliestPossibleStarttime(j, jobs);
+			int p2 = starttime(j, p1, resourcenTableau);
+			actualizeResources(j, resourcenTableau, p2);
+
+			schedule[i] = p2;
+		}
+
+	}
+
+	public int earliestPossibleStarttime(Job x, Job[] y) {
+
+		return 0;
+
+	}
+
+	public int starttime(Job x, int y, int[][] z) {
+
+		return 0;
+	}
+
+	public int actualizeResources(Job x, int[][] y, int z) {
+
+		return 0;
+	}
+
 }
