@@ -27,11 +27,11 @@ public class ProcessingSchedule {
 // CalcualtePredecessors
 		Job.calculatePredecessors(jobs);
 
-		Schedule s = new Schedule();
-		s.initializeJobListe(jobs);
+		//Schedule s = new Schedule();
+		//s.initializeJobListe(jobs);
 
-		//auslesen(jobs);
-		//auslesen(res);
+		auslesen(jobs);
+		auslesen(res);
 		
 		//System.out.println("\n-------------------------------\n");
 		

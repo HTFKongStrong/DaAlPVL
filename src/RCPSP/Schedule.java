@@ -6,6 +6,7 @@ public class Schedule {
 	int[] jobListe;
 	int[] schedule;
 
+// Berechnet eine zulaessige Jobliste
 	public void initializeJobListe(Job[] jobs) {
 		ArrayList<Job> eligibleJobs = new ArrayList<>();
 		jobListe = new int[jobs.length];
@@ -62,6 +63,7 @@ public class Schedule {
 		}
 	}
 
+// Berechnet mit Jobliste fuer jeden Job die zugehoerige Startzeit
 	public void decodeJobList(Job[] jobs, Resource[] res) {
 		// calculate the starting times of the jobs in the order of jobListe
 
@@ -96,14 +98,26 @@ public class Schedule {
 
 	}
 
-	public int earliestPossibleStarttime(Job x, Job[] y) {
-
-		return 0;
-
+	public int earliestPossibleStarttime(Job j, Job[] jobs) {
+		// berechneFruehesteStartzeit
+		// Der Zeitpunkt, nachdem alle Vorgänger abgearbeitet sind.
+		ArrayList<Integer> vorgaenger = j.vorgaenger;
+		// Startzeit des spätesten Vorgängers + dauer!
+		int fruehestenStart = 0;
+		for (int i = 0; i < vorgaenger.size(); i++) {
+			Job vorg = Job.getJob(jobs, vorgaenger.get(i));
+			for (int k = 0; k < jobListe.length; k++) {
+				if (jobListe[k] == vorg.nummer) {
+					if ((schedule[k] + vorg.dauer()) > fruehestenStart)
+						fruehestenStart = schedule[k] + vorg.dauer();
+				}
+			}
+		}
+		return fruehestenStart;
 	}
 
 	public int starttime(Job x, int y, int[][] z) {
-
+		// startzeit in abhaengigkeit zu den ressourcen
 		return 0;
 	}
 
