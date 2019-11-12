@@ -27,7 +27,8 @@ public class Resource {
 
 	public static Resource[] read(File file) throws FileNotFoundException {
 		Scanner scanner = new Scanner(file);
-		Resource[] resources = new Resource[4];
+//		Resource[] resources = new Resource[4]; //hier später zurück ändern
+		Resource[] resources = new Resource[2];
 		boolean found = false;
 		while (scanner.hasNext()) {
 			String nextLine = scanner.nextLine();
@@ -45,12 +46,12 @@ public class Resource {
 				resources[0] = new Resource(Integer.parseInt(nextString), 1);
 				if (next.hasNext()) {
 					resources[1] = new Resource(next.nextInt(), 2);
-					if (next.hasNext()) {
-						resources[2] = new Resource(next.nextInt(), 3);
-						if (next.hasNext()) {
-							resources[3] = new Resource(next.nextInt(), 4);
-						}
-					}
+//					if (next.hasNext()) {
+//						resources[2] = new Resource(next.nextInt(), 3);
+//						if (next.hasNext()) {
+//							resources[3] = new Resource(next.nextInt(), 4);
+//						}
+//					}
 				}
 				break;
 			}

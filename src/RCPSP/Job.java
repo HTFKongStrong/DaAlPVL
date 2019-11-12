@@ -12,7 +12,7 @@ public class Job {
 
 	// Number of a job
 	int nummer;
-
+	// Ein Kommentar
 	// successors; each element contains the job-number (int)
 	ArrayList<Integer> nachfolger;
 
@@ -170,7 +170,8 @@ public class Job {
 				try {
 					int nummer = Integer.valueOf(nextString);
 					nextString = lineScanner.next();
-					int[] res = new int[4];
+//					int[] res = new int[4]; //hier später zurückändern
+					int[] res = new int[2];
 					if (lineScanner.hasNext()) {
 						int duration = Integer.valueOf(lineScanner.next());
 						if (lineScanner.hasNext()) {
@@ -179,14 +180,14 @@ public class Job {
 							if (lineScanner.hasNext()) {
 								nextString = lineScanner.next();
 								res[1] = Integer.valueOf(nextString);
-								if (lineScanner.hasNext()) {
-									nextString = lineScanner.next();
-									res[2] = Integer.valueOf(nextString);
-									if (lineScanner.hasNext()) {
-										nextString = lineScanner.next();
-										res[3] = Integer.valueOf(nextString);
-									}
-								}
+//								if (lineScanner.hasNext()) { //später auskommentieren
+//									nextString = lineScanner.next();
+//									res[2] = Integer.valueOf(nextString);
+//									if (lineScanner.hasNext()) {
+//										nextString = lineScanner.next();
+//										res[3] = Integer.valueOf(nextString);
+//									}
+//								}
 							}
 
 						}

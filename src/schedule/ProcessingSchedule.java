@@ -13,8 +13,10 @@ public class ProcessingSchedule {
 	public static void main(String[] args) throws FileNotFoundException {
 //		Job[] jobs     = Job.read(new File("j1201_5.sm"));//best makespan=112
 //		Resource[] res = Resource.read(new File("j1201_5.sm"));
-		Job[] jobs = Job.read(new File("j12046_8.sm"));
-		Resource[] res = Resource.read(new File("j12046_8.sm"));
+//		Job[] jobs = Job.read(new File("j12046_8.sm"));
+//		Resource[] res = Resource.read(new File("j12046_8.sm"));
+		Job[] jobs = Job.read(new File("j12.sm"));
+		Resource[] res = Resource.read(new File("j12.sm"));
 
 //For Loop Homberger for calculate the Predecessors of every item in jobs		
 //		for (int i = 0; i < jobs.length; i++) {
@@ -24,8 +26,8 @@ public class ProcessingSchedule {
 // CalcualtePredecessors
 		Job.calculatePredecessors(jobs);
 
-		Schedule s = new Schedule();
-		s.initializeJobListe(jobs);
+//		Schedule s = new Schedule();
+//		s.initializeJobListe(jobs);
 
 		auslesen(jobs);
 		auslesen(res);
