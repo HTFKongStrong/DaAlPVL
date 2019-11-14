@@ -56,6 +56,7 @@ public class MySchedule {
 
     public void jobGetKOZResource(Job[] jobs){
         //Berechnung welcher Job am wenigsten Resourcenlastig ist
+        //sss
 
     }
 }
