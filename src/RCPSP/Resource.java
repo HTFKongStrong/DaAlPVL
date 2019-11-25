@@ -58,4 +58,9 @@ public class Resource {
 		}
 		return resources;
 	}
+	@Override
+	public String toString() {
+		return "Nummer: " + nummer + "\nmaxVerfuegbarkeit: " + maxVerfuegbarkeit;
+	}
+
 }

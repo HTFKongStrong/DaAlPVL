@@ -6,6 +6,7 @@ package RCPSP;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Job {
@@ -206,4 +207,11 @@ public class Job {
 		}
 		return jobs;
 	}
+	
+	@Override
+	public String toString() {
+		return "nummer: " + nummer + "\nnachfolger: " + nachfolger + "\nvorgaenger: " + vorgaenger + "\ndauer: " + dauer
+				+ "\nverwendeteResourcen: " + Arrays.toString(verwendeteResourcen);
+	}
+
 }
