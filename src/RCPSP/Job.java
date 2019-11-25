@@ -207,7 +207,7 @@ public class Job {
 		}
 		return jobs;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "nummer: " + nummer + "\nnachfolger: " + nachfolger + "\nvorgaenger: " + vorgaenger + "\ndauer: " + dauer
