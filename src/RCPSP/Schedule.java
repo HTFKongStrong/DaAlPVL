@@ -1,6 +1,8 @@
 package RCPSP;
 //Klasse in Schedule umbennenen
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Schedule {
@@ -116,12 +118,32 @@ public class Schedule {
 		return fruehestenStart;
 	}
 
-	private void actualizeResources(Job j, int[][] resourcenTableau, int p2) {
+	public void actualizeResources(Job j, int[][] resTab, int start){
+		
+		int[] verwendeteResourcen = j.verwendeteResourcen;
+		for(int k = 0; k < resTab.length; k++){
+			for(int i = start; i < (start + j.dauer); i++){
+				resTab[k][i] -= verwendeteResourcen[k];
+			}
+		}
 	}
+
 
 	private int starttime(Job j, int p1, int[][] resourcenTableau) {
 		// startzeit in abhaengigkeit zu den ressourcen
 		return p1;
 	}
+	public void ausgabe(String directory, String ausgabeName){
+		try{	
+			PrintWriter pu = new PrintWriter(new FileWriter(ausgabeName + ".sol"));
+			for(int i=0;i<jobListe.length;i++){
+				pu.println(jobListe[i] + " " + schedule[i]);
+			}
+			pu.close();	
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}	
 
 }
