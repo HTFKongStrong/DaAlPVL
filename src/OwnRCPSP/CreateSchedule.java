@@ -1,7 +1,10 @@
-package RCPSP;
+package OwnRCPSP;
 
 import java.util.ArrayList;
 
+import RCPSP.Job;
+
+//klasse kann gelöscht werden
 public class CreateSchedule {
 
 	public static void createSchedule(Job[] jobs) {

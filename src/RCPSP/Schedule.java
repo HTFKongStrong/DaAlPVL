@@ -130,10 +130,29 @@ public class Schedule {
 		}
 	}
 
-	private int starttime(Job j, int p1, int[][] resourcenTableau) {
-		// startzeit in abhaengigkeit zu den ressourcen
+	public int starttime(Job j, int p1, int[][] resTab){
+		// Prüfen, ob ab diesem Zeitpunkt genügend resourcen für die Dauer des Jobs vorhanden sind
+		int[] verwendeteResourcen = j.verwendeteResourcen;
+		boolean genug = true;
+		int count = 0; 
+		do{
+			genug = true;
+			if(count != 0)
+			{
+				p1++;
+			}
+			for(int k = 0; k < resTab.length; k++){
+				for(int i = p1; i < (p1 + j.dauer); i++){
+					if(resTab[k][i] < verwendeteResourcen[k]){
+						genug = false;
+					}
+				}
+			}
+			count++;
+		}while(!genug);
 		return p1;
 	}
+
 
 	public void ausgabe(String directory, String ausgabeName) {
 		try {

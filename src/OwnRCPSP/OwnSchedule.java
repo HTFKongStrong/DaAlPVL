@@ -1,11 +1,11 @@
-package schedule;
-
-import RCPSP.Job;
+package OwnRCPSP;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MySchedule {
+import RCPSP.Job;
+//Kann irgnieuwer werden - ist alt - evtl löschen
+public class OwnSchedule {
 	ArrayList<Integer> jobListe = new ArrayList<>();
 	ArrayList<Integer> jobsGeplant = new ArrayList<>();
 	ArrayList<Integer> jobsPlanbar = new ArrayList<>(); // alle Jobs die noch nicht in der JobListe sind

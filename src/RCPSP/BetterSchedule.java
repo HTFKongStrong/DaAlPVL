@@ -1,7 +1,4 @@
-package schedule;
-
-import RCPSP.Job;
-import RCPSP.Resource;
+package RCPSP;
 
 import java.util.ArrayList;
 import java.util.Collections;
